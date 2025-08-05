@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>World Clock</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    table { border-collapse: collapse; width: 100%; max-width: 600px; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>いろんな国の現在時刻</h1>
+  <table>
+    <tr><th>国・地域</th><th>現在時刻</th></tr>
+    {% for country, time in times.items() %}
+    <tr><td>{{ country }}</td><td>{{ time }}</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
