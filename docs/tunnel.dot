@@ -1,0 +1,12 @@
+digraph ReverseSSHTunnel {
+    rankdir = LR;            // 左→右に並べる
+    nodesep = 1.0;           // ノード間の余白
+
+    Mac    [label="Mac / 外部PC\nSSH client"];
+    Garnet [label="Garnet\nsshd :22\nreverse tunnel :2222"];
+    Pi     [label="Raspberry Pi\nsshd :22"];
+
+    Mac    -> Garnet [label="TCP 22\n(初回接続)"];
+    Mac    -> Garnet [label="TCP 2222\n(localhost)", style=dashed];
+    Garnet -> Pi     [label="転送 → 22",             style=dashed];
+}
